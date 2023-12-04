@@ -81,6 +81,12 @@ class TestBooksCollector:
         collector.set_book_genre(name='Книга ужасов', genre='Ужасы')
         assert collector.get_books_for_children() != ['Книга ужасов']
 
+    def test_get_books_for_children_get_book_name_then_book_not_in_genre_age_rating(self):
+        collector = BooksCollector()
+        collector.add_new_book(name='Детская книга')
+        collector.set_book_genre(name='Детская книга', genre='Фантастика')
+        assert collector.get_books_for_children() == ['Детская книга']
+
     def test_add_book_in_favorites_add_one_favorits(self):
         collector = BooksCollector()
         collector.add_new_book(name='Книга фаворит 1')
